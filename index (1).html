@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>올바른청소 — 학교 전문 청소</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --sky:#E8F4FD;--sky2:#B8D9F5;--sky3:#378ADD;--navy:#0C3557;--navy2:#185FA5;
+  --mint:#E1F5EE;--mint2:#1D9E75;--mint3:#085041;
+  --warm:#FFF8F0;--text:#1a1a1a;--muted:#5a6272;--border:#dee4ec;
+  --r:12px;
+}
+body{font-family:'Noto Sans KR',sans-serif;color:var(--text);background:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(8px);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:60px}
+.logo{font-family:'Noto Serif KR',serif;font-size:18px;font-weight:700;color:var(--navy)}
+.logo span{color:var(--mint2)}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:13px;font-weight:500;color:var(--muted);transition:color 0.2s}
+.nav-links a:hover{color:var(--navy)}
+.nav-cta{background:var(--navy);color:#fff;padding:8px 18px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;border:none}
+.hero{min-height:100vh;background:linear-gradient(160deg,var(--sky) 0%,#fff 55%);display:flex;align-items:center;padding:80px 5% 60px;position:relative;overflow:hidden}
+.hero-bg-circle{position:absolute;right:-120px;top:10%;width:520px;height:520px;border-radius:50%;background:var(--sky2);opacity:0.35}
+.hero-content{position:relative;z-index:2;max-width:540px}
+.hero-badge{display:inline-flex;align-items:center;gap:6px;background:var(--mint);color:var(--mint3);font-size:12px;font-weight:500;padding:5px 12px;border-radius:20px;margin-bottom:20px}
+.hero-badge::before{content:'✓';font-weight:700}
+h1{font-family:'Noto Serif KR',serif;font-size:clamp(32px,5vw,54px);font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:16px;letter-spacing:-1px}
+h1 em{color:var(--mint2);font-style:normal}
+.hero-sub{font-size:16px;color:var(--muted);line-height:1.8;margin-bottom:32px;font-weight:300}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{background:var(--navy);color:#fff;padding:14px 28px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;border:none;transition:background 0.2s}
+.btn-primary:hover{background:var(--navy2)}
+.btn-outline{background:#fff;color:var(--navy);padding:14px 28px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;border:1.5px solid var(--navy2);transition:all 0.2s}
+.btn-outline:hover{background:var(--sky)}
+.hero-stats{display:flex;gap:32px;margin-top:48px;padding-top:32px;border-top:1px solid var(--border)}
+.stat-num{font-family:'Noto Serif KR',serif;font-size:28px;font-weight:700;color:var(--navy)}
+.stat-label{font-size:12px;color:var(--muted);margin-top:2px}
+section{padding:80px 5%}
+.section-label{font-size:12px;font-weight:500;color:var(--mint2);letter-spacing:2px;text-transform:uppercase;margin-bottom:10px}
+.section-title{font-family:'Noto Serif KR',serif;font-size:clamp(24px,3.5vw,36px);font-weight:700;color:var(--navy);margin-bottom:12px}
+.section-sub{font-size:15px;color:var(--muted);line-height:1.8}
+#services{background:#FAFBFD}
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:40px}
+.service-card{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:24px 20px;transition:all 0.25s}
+.service-card:hover{border-color:var(--sky3);box-shadow:0 4px 20px rgba(55,138,221,0.1);transform:translateY(-3px)}
+.service-icon{width:48px;height:48px;border-radius:10px;background:var(--sky);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:14px}
+.service-name{font-size:15px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.service-desc{font-size:13px;color:var(--muted);line-height:1.6}
+.service-price{margin-top:12px;font-size:13px;font-weight:500;color:var(--mint2)}
+.trust-strip{background:var(--navy);padding:40px 5%;display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px}
+.trust-item{text-align:center;color:#fff}
+.trust-num{font-family:'Noto Serif KR',serif;font-size:32px;font-weight:700;color:#B8D9F5}
+.trust-txt{font-size:13px;color:rgba(255,255,255,0.7);margin-top:4px}
+.gallery-intro{margin-bottom:32px}
+.before-after-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.ba-card{border-radius:var(--r);overflow:hidden;border:1px solid var(--border)}
+.ba-imgs{display:grid;grid-template-columns:1fr 1fr;position:relative}
+.ba-img{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:500;position:relative}
+.ba-before{background:linear-gradient(135deg,#e8d5c4,#d4b8a0);color:#5a3e2b}
+.ba-after{background:linear-gradient(135deg,var(--mint),#b8e8d4);color:var(--mint3)}
+.ba-divider{position:absolute;left:50%;top:0;bottom:0;width:2px;background:#fff;z-index:1}
+.ba-label{font-size:10px;font-weight:700;letter-spacing:1px;padding:4px 8px;position:absolute;top:8px;border-radius:4px}
+.ba-label.before{left:8px;background:rgba(90,62,43,0.15);color:#5a3e2b}
+.ba-label.after{right:8px;background:rgba(29,158,117,0.15);color:var(--mint3)}
+.ba-info{padding:14px 16px}
+.ba-type{font-size:13px;font-weight:700;color:var(--navy)}
+.ba-detail{font-size:12px;color:var(--muted);margin-top:2px}
+#booking{background:var(--warm)}
+.booking-layout{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px;align-items:start}
+.calendar-wrap{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:24px}
+.cal-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:20px}
+.cal-month{font-size:16px;font-weight:700;color:var(--navy)}
+.cal-nav{background:none;border:1px solid var(--border);width:30px;height:30px;border-radius:6px;cursor:pointer;font-size:14px;color:var(--muted)}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;text-align:center}
+.cal-dow{font-size:11px;color:var(--muted);font-weight:500;padding:4px 0;margin-bottom:4px}
+.cal-day{width:100%;aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:13px;border-radius:6px;cursor:pointer;transition:all 0.15s;border:none;background:none;flex-direction:column}
+.cal-day:hover:not(.disabled):not(.fully-blocked){background:var(--sky);color:var(--navy)}
+.cal-day.selected{background:var(--navy);color:#fff}
+.cal-day.today{font-weight:700;color:var(--navy2)}
+.cal-day.disabled{color:#ccc;cursor:default}
+.cal-day.has-slot::after{content:'';display:block;width:4px;height:4px;border-radius:50%;background:var(--mint2);margin:2px auto 0}
+.cal-day.fully-blocked{color:#ccc;cursor:not-allowed;background:#f9f9f9;text-decoration:line-through}
+.cal-loading{font-size:12px;color:var(--muted);padding:12px 0;text-align:center}
+.time-slots{margin-top:16px}
+.time-label{font-size:12px;font-weight:500;color:var(--muted);margin-bottom:8px}
+.slot-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
+.slot{padding:8px 4px;border:1px solid var(--border);border-radius:6px;font-size:12px;text-align:center;cursor:pointer;transition:all 0.15s}
+.slot:hover:not(.blocked){border-color:var(--sky3);background:var(--sky)}
+.slot.selected{background:var(--navy);color:#fff;border-color:var(--navy)}
+.slot.blocked{background:#f5f5f5;color:#bbb;cursor:not-allowed;text-decoration:line-through}
+.form-wrap{background:#fff;border:1px solid var(--border);border-radius:var(--r);padding:24px}
+.form-title{font-size:16px;font-weight:700;color:var(--navy);margin-bottom:16px}
+.field{margin-bottom:14px}
+.field label{display:block;font-size:12px;font-weight:500;color:var(--muted);margin-bottom:5px}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--border);border-radius:7px;padding:10px 12px;font-size:13px;font-family:'Noto Sans KR',sans-serif;color:var(--text);background:#fff;transition:border 0.2s}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--navy2)}
+.field textarea{height:72px;resize:none}
+.submit-btn{width:100%;background:var(--mint2);color:#fff;border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;font-family:'Noto Sans KR',sans-serif;margin-top:6px;transition:background 0.2s;display:flex;align-items:center;justify-content:center;gap:8px}
+.submit-btn:hover:not(:disabled){background:var(--mint3)}
+.submit-btn:disabled{opacity:0.6;cursor:not-allowed}
+.submit-note{font-size:11px;color:var(--muted);text-align:center;margin-top:8px;line-height:1.6}
+.spinner{width:16px;height:16px;border:2px solid rgba(255,255,255,0.4);border-top-color:#fff;border-radius:50%;animation:spin 0.7s linear infinite;display:none}
+@keyframes spin{to{transform:rotate(360deg)}}
+.success-box{display:none;background:var(--mint);border:1px solid var(--mint2);border-radius:var(--r);padding:24px;text-align:center;margin-top:24px}
+.success-icon{font-size:36px;margin-bottom:8px}
+.success-title{font-size:16px;font-weight:700;color:var(--mint3)}
+.success-msg{font-size:13px;color:var(--mint3);margin-top:4px;line-height:1.6}
+.error-box{display:none;background:#FCEBEB;border:1px solid #E24B4A;border-radius:var(--r);padding:16px;text-align:center;margin-top:12px;font-size:13px;color:#A32D2D}
+#contact{background:#fff}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:40px}
+.contact-card{background:var(--sky);border-radius:var(--r);padding:28px;display:flex;flex-direction:column;gap:16px}
+.contact-item{display:flex;align-items:flex-start;gap:12px}
+.contact-icon{width:36px;height:36px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+.contact-label{font-size:11px;font-weight:500;color:var(--muted)}
+.contact-value{font-size:14px;font-weight:500;color:var(--navy)}
+.area-map{background:var(--mint);border-radius:var(--r);padding:28px}
+.area-title{font-size:14px;font-weight:700;color:var(--mint3);margin-bottom:12px}
+.area-tags{display:flex;flex-wrap:wrap;gap:6px}
+.area-tag{background:#fff;color:var(--mint3);border:1px solid rgba(29,158,117,0.3);padding:5px 12px;border-radius:20px;font-size:12px;font-weight:500}
+footer{background:#111;color:rgba(255,255,255,0.5);padding:28px 5%;display:flex;justify-content:space-between;align-items:center;font-size:12px}
+.footer-brand{font-family:'Noto Serif KR',serif;color:rgba(255,255,255,0.8);font-size:14px}
+html{scroll-behavior:smooth}
+@media(max-width:640px){
+  .booking-layout,.contact-grid,.before-after-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero-stats{gap:20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">올바른<span>청소</span></div>
+  <div class="nav-links">
+    <a href="#services">서비스</a>
+    <a href="#gallery">청소 갤러리</a>
+    <a href="#booking">상담 신청</a>
+    <a href="#contact">연락처</a>
+  </div>
+  <button class="nav-cta" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">상담 신청</button>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg-circle"></div>
+  <div class="hero-content">
+    <div class="hero-badge">학교 전문 청소 업체</div>
+    <h1>깨끗한 교실,<br><em>올바른 청소</em>부터</h1>
+    <p class="hero-sub">교실, 복도, 급식실, 화장실까지 학교 전체를 전문적으로 청소합니다.<br>안전한 친환경 세정제와 전문 장비로 믿고 맡길 수 있는 청소 서비스.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('booking').scrollIntoView({behavior:'smooth'})">상담 신청하기</button>
+      <button class="btn-outline" onclick="document.getElementById('gallery').scrollIntoView({behavior:'smooth'})">청소 전·후 보기</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">500+</div><div class="stat-label">누적 청소 건수</div></div>
+      <div class="stat"><div class="stat-num">4.9★</div><div class="stat-label">고객 만족도</div></div>
+      <div class="stat"><div class="stat-num">5년+</div><div class="stat-label">학교 청소 경력</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="section-label">SERVICE</div>
+  <div class="section-title">학교 공간별 청소 서비스</div>
+  <p class="section-sub">학교의 모든 공간을 전문적으로 청소·살균합니다.</p>
+  <div class="services-grid">
+    <div class="service-card"><div class="service-icon">🏫</div><div class="service-name">교실 청소</div><div class="service-desc">바닥 왁스, 책상·의자 살균, 창문 청소까지 교실 전체를 깨끗하게.</div><div class="service-price">별도 문의</div></div>
+    <div class="service-card"><div class="service-icon">🍽️</div><div class="service-name">급식실 청소</div><div class="service-desc">식품 위생 기준에 맞는 급식실 전문 세척·살균 서비스.</div><div class="service-price">별도 문의</div></div>
+    <div class="service-card"><div class="service-icon">🚻</div><div class="service-name">화장실 청소</div><div class="service-desc">고압 세척 및 항균 처리로 악취·세균 완전 제거.</div><div class="service-price">별도 문의</div></div>
+    <div class="service-card"><div class="service-icon">🏃</div><div class="service-name">복도·계단 청소</div><div class="service-desc">복도, 계단, 현관 등 공용 공간 전체 청소.</div><div class="service-price">별도 문의</div></div>
+    <div class="service-card"><div class="service-icon">📚</div><div class="service-name">도서관·특별실</div><div class="service-desc">도서관, 과학실, 음악실 등 특별실 맞춤 청소.</div><div class="service-price">별도 문의</div></div>
+    <div class="service-card"><div class="service-icon">📦</div><div class="service-name">학기말 대청소</div><div class="service-desc">학기말·방학 중 학교 전체 종합 대청소 패키지.</div><div class="service-price">패키지 문의</div></div>
+  </div>
+</section>
+
+<div class="trust-strip">
+  <div class="trust-item"><div class="trust-num">100%</div><div class="trust-txt">친환경 안전 세정제 사용</div></div>
+  <div class="trust-item"><div class="trust-num">당일</div><div class="trust-txt">청소 완료 후 즉시 사용 가능</div></div>
+  <div class="trust-item"><div class="trust-num">무상</div><div class="trust-txt">청소 후 이상 시 재방문 AS</div></div>
+  <div class="trust-item"><div class="trust-num">정품</div><div class="trust-txt">전문 고압 세척 장비 보유</div></div>
+</div>
+
+<section id="gallery">
+  <div class="gallery-intro">
+    <div class="section-label">GALLERY</div>
+    <div class="section-title">청소 전·후 비교</div>
+  </div>
+  <div class="before-after-grid">
+    <div class="ba-card"><div class="ba-imgs"><div class="ba-img ba-before"><span class="ba-label before">BEFORE</span><div style="text-align:center"><div style="font-size:32px">😷</div><div style="font-size:12px;margin-top:4px">먼지·오염 가득</div></div></div><div class="ba-divider"></div><div class="ba-img ba-after"><span class="ba-label after">AFTER</span><div style="text-align:center"><div style="font-size:32px">✨</div><div style="font-size:12px;margin-top:4px">깨끗하게 복원</div></div></div></div><div class="ba-info"><div class="ba-type">교실 바닥</div><div class="ba-detail">왁스 제거 후 재도포 · 완전 복원</div></div></div>
+    <div class="ba-card"><div class="ba-imgs"><div class="ba-img ba-before"><span class="ba-label before">BEFORE</span><div style="text-align:center"><div style="font-size:32px">🤢</div><div style="font-size:12px;margin-top:4px">악취·세균 서식</div></div></div><div class="ba-divider"></div><div class="ba-img ba-after"><span class="ba-label after">AFTER</span><div style="text-align:center"><div style="font-size:32px">🌿</div><div style="font-size:12px;margin-top:4px">살균·무취 상태</div></div></div></div><div class="ba-info"><div class="ba-type">화장실</div><div class="ba-detail">고압 세척 및 항균 처리 완료</div></div></div>
+    <div class="ba-card"><div class="ba-imgs"><div class="ba-img ba-before"><span class="ba-label before">BEFORE</span><div style="text-align:center"><div style="font-size:32px">🏭</div><div style="font-size:12px;margin-top:4px">기름때·오염</div></div></div><div class="ba-divider"></div><div class="ba-img ba-after"><span class="ba-label after">AFTER</span><div style="text-align:center"><div style="font-size:32px">❄️</div><div style="font-size:12px;margin-top:4px">위생 기준 충족</div></div></div></div><div class="ba-info"><div class="ba-type">급식실</div><div class="ba-detail">식품 위생 기준 세척·살균 완료</div></div></div>
+    <div class="ba-card"><div class="ba-imgs"><div class="ba-img ba-before"><span class="ba-label before">BEFORE</span><div style="text-align:center"><div style="font-size:32px">🦠</div><div style="font-size:12px;margin-top:4px">묵은 때·오염</div></div></div><div class="ba-divider"></div><div class="ba-img ba-after"><span class="ba-label after">AFTER</span><div style="text-align:center"><div style="font-size:32px">💎</div><div style="font-size:12px;margin-top:4px">완전 복원</div></div></div></div><div class="ba-info"><div class="ba-type">복도·계단</div><div class="ba-detail">학기말 대청소 · 전체 복도 완전 복원</div></div></div>
+  </div>
+</section>
+
+<section id="booking">
+  <div class="section-label">CONSULTATION</div>
+  <div class="section-title">상담 신청하기</div>
+  <p class="section-sub">희망 날짜와 시간을 선택하고 정보를 입력해 주시면, 담당자가 확인 후 연락드립니다.<br>일정 확정은 담당자 확인 후 안내드립니다.</p>
+  <div class="booking-layout">
+    <div>
+      <div class="calendar-wrap">
+        <div class="cal-header">
+          <button class="cal-nav" onclick="changeMonth(-1)">‹</button>
+          <div class="cal-month" id="calTitle"></div>
+          <button class="cal-nav" onclick="changeMonth(1)">›</button>
+        </div>
+        <div class="cal-grid" id="calDow"></div>
+        <div class="cal-grid" id="calDays"></div>
+        <div class="time-slots" id="timeSlots" style="display:none">
+          <div class="time-label">희망 시간 선택</div>
+          <div class="slot-grid" id="slotGrid"></div>
+        </div>
+      </div>
+    </div>
+    <div class="form-wrap">
+      <div class="form-title" id="formTitle">날짜를 먼저 선택해 주세요</div>
+      <div class="field"><label>이름 *</label><input type="text" id="fname" placeholder="홍길동"></div>
+      <div class="field"><label>연락처 *</label><input type="tel" id="fphone" placeholder="010-0000-0000"></div>
+      <div class="field"><label>주소 (학교명) *</label><input type="text" id="faddr" placeholder="서울시 강남구 OO초등학교"></div>
+      <div class="field"><label>청소 종류 *</label>
+        <select id="ftype">
+          <option value="">선택해 주세요</option>
+          <option>교실 청소</option>
+          <option>급식실 청소</option>
+          <option>화장실 청소</option>
+          <option>복도·계단 청소</option>
+          <option>도서관·특별실 청소</option>
+          <option>학기말 대청소 패키지</option>
+          <option>기타</option>
+        </select>
+      </div>
+      <div class="field"><label>수량 / 면적</label>
+        <input type="text" id="fqty" placeholder="예) 교실 3개, 약 200㎡">
+      </div>
+      <div class="field"><label>요청사항</label><textarea id="freq" placeholder="특이사항이 있으면 입력해 주세요 (선택)"></textarea></div>
+      <button class="submit-btn" id="submitBtn" onclick="submitBooking()">
+        <span id="btnText">상담 신청하기</span>
+        <div class="spinner" id="spinner"></div>
+      </button>
+      <p class="submit-note">신청 후 담당자 확인 시 문자 또는 전화로 안내드립니다.<br>당일 상담은 전화 문의 부탁드립니다. <strong>010-XXXX-XXXX</strong></p>
+      <div class="error-box" id="errorBox">전송 중 오류가 발생했습니다. 전화로 문의해 주세요.</div>
+    </div>
+  </div>
+  <div class="success-box" id="successBox">
+    <div class="success-icon">✅</div>
+    <div class="success-title">상담 신청이 완료되었습니다!</div>
+    <div class="success-msg">담당자가 확인 후 최대 2시간 이내 연락드립니다.<br>일정 확정 후 예약이 최종 완료됩니다.</div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="section-label">CONTACT</div>
+  <div class="section-title">연락처 및 서비스 지역</div>
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-item"><div class="contact-icon">📞</div><div><div class="contact-label">전화 문의</div><div class="contact-value">010-XXXX-XXXX</div></div></div>
+      <div class="contact-item"><div class="contact-icon">💬</div><div><div class="contact-label">카카오톡</div><div class="contact-value">@올바른청소 채널</div></div></div>
+      <div class="contact-item"><div class="contact-icon">🕐</div><div><div class="contact-label">운영 시간</div><div class="contact-value">평일·토요일 09:00 – 18:00</div></div></div>
+      <div class="contact-item"><div class="contact-icon">📧</div><div><div class="contact-label">이메일</div><div class="contact-value">clean@olbareun.kr</div></div></div>
+    </div>
+    <div class="area-map">
+      <div class="area-title">📍 서비스 지역</div>
+      <div class="area-tags" id="areaTags"></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-brand">올바른청소</div>
+  <div>학교 전문 청소 · 사업자번호 000-00-00000</div>
+  <div>© 2025 올바른청소</div>
+</footer>
+
+<script>
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwxntrifMzeUe3bqfqh7xZBhXUWNbdwMsja4YmNPC7iAVjWpuSzRh8rSbqKQ12rMMGOdw/exec';
+const ALL_SLOTS = ['09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00'];
+
+let cur = new Date();
+let selDate = null, selTime = null;
+let blockedData = {};
+let loadedMonth = null;
+
+const months = ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'];
+const dows   = ['일','월','화','수','목','금','토'];
+
+async function fetchBlocked(year, month) {
+  const key = year + '-' + month;
+  if (loadedMonth === key) return;
+  loadedMonth = key;
+  blockedData = {};
+  try {
+    const res = await fetch(`${SHEET_URL}?year=${year}&month=${month}`);
+    blockedData = await res.json();
+  } catch(e) {
+    // 조회 실패 시 빈 객체 유지 (차단 없는 상태로 표시)
+  }
+}
+
+function isSlotBlocked(dateKey, slot) {
+  const b = blockedData[dateKey];
+  if (!b) return false;
+  if (b === 'ALL') return true;
+  return b.includes(slot);
+}
+
+function isDateFullyBlocked(dateKey) {
+  const b = blockedData[dateKey];
+  if (!b) return false;
+  if (b === 'ALL') return true;
+  return ALL_SLOTS.every(s => b.includes(s));
+}
+
+function renderCal() {
+  const y = cur.getFullYear(), m = cur.getMonth();
+  document.getElementById('calTitle').textContent = y + '년 ' + months[m];
+  document.getElementById('calDow').innerHTML = dows.map(d => `<div class="cal-dow">${d}</div>`).join('');
+
+  const first = new Date(y, m, 1).getDay();
+  const last  = new Date(y, m + 1, 0).getDate();
+  const today = new Date();
+  let html = '';
+
+  for (let i = 0; i < first; i++) html += '<div></div>';
+  for (let d = 1; d <= last; d++) {
+    const date    = new Date(y, m, d);
+    const isToday = date.toDateString() === today.toDateString();
+    const isPast  = date < new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const isSun   = date.getDay() === 0;
+    const isSel   = selDate && date.toDateString() === selDate.toDateString();
+    const dateKey = y + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+    const fullyBlocked = isDateFullyBlocked(dateKey);
+
+    let cls = 'cal-day';
+    if (isToday) cls += ' today';
+    if (isPast || isSun) cls += ' disabled';
+    else if (fullyBlocked) cls += ' fully-blocked';
+    else cls += ' has-slot';
+    if (isSel) cls += ' selected';
+
+    const clickable = !isPast && !isSun && !fullyBlocked;
+    const oc = clickable ? `onclick="selectDate(${y},${m},${d})"` : '';
+    html += `<button class="${cls}" ${oc}>${d}</button>`;
+  }
+  document.getElementById('calDays').innerHTML = html;
+  if (selDate) renderSlots();
+}
+
+async function changeMonth(d) {
+  cur.setMonth(cur.getMonth() + d);
+  selDate = null; selTime = null;
+  document.getElementById('timeSlots').style.display = 'none';
+  document.getElementById('calDays').innerHTML = '<div class="cal-loading" style="grid-column:1/-1">불러오는 중...</div>';
+  await fetchBlocked(cur.getFullYear(), cur.getMonth());
+  renderCal();
+}
+
+async function selectDate(y, m, d) {
+  selDate = new Date(y, m, d);
+  selTime = null;
+  document.getElementById('formTitle').textContent = `${y}년 ${months[m]} ${d}일 희망일로 신청`;
+  document.getElementById('timeSlots').style.display = 'block';
+  renderCal();
+  renderSlots();
+}
+
+function renderSlots() {
+  if (!selDate) return;
+  const y = selDate.getFullYear();
+  const m = selDate.getMonth();
+  const d = selDate.getDate();
+  const dateKey = y + '-' + String(m+1).padStart(2,'0') + '-' + String(d).padStart(2,'0');
+
+  document.getElementById('slotGrid').innerHTML = ALL_SLOTS.map(t => {
+    const blocked = isSlotBlocked(dateKey, t);
+    const isSel   = t === selTime;
+    let cls = 'slot';
+    if (blocked) cls += ' blocked';
+    else if (isSel) cls += ' selected';
+    const oc = !blocked ? `onclick="selectTime('${t}')"` : '';
+    return `<div class="${cls}" ${oc}>${t}${blocked ? ' (마감)' : ''}</div>`;
+  }).join('');
+}
+
+function selectTime(t) { selTime = t; renderSlots(); }
+
+async function submitBooking() {
+  if (!selDate || !selTime) { alert('날짜와 시간을 선택해 주세요.'); return; }
+  const name  = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('fphone').value.trim();
+  const addr  = document.getElementById('faddr').value.trim();
+  const type  = document.getElementById('ftype').value;
+  if (!name || !phone || !addr || !type) {
+    alert('이름, 연락처, 주소(학교명), 청소 종류는 필수 입력 항목입니다.');
+    return;
+  }
+
+  const btn     = document.getElementById('submitBtn');
+  const spinner = document.getElementById('spinner');
+  const btnText = document.getElementById('btnText');
+  btn.disabled = true;
+  spinner.style.display = 'block';
+  btnText.textContent = '전송 중...';
+  document.getElementById('errorBox').style.display = 'none';
+
+  const y = selDate.getFullYear();
+  const m = selDate.getMonth();
+  const d = selDate.getDate();
+  const dateStr = `${y}년 ${months[m]} ${d}일 ${selTime}`;
+
+  const payload = {
+    date:    dateStr,
+    name,
+    phone,
+    address: addr,
+    acType:  type,
+    qty:     document.getElementById('fqty').value.trim() || '미입력',
+    request: document.getElementById('freq').value.trim() || '없음'
+  };
+
+  try {
+    await fetch(SHEET_URL, {
+      method:  'POST',
+      mode:    'no-cors',
+      headers: { 'Content-Type': 'application/json' },
+      body:    JSON.stringify(payload)
+    });
+    document.getElementById('successBox').style.display = 'block';
+    document.getElementById('successBox').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  } catch(e) {
+    document.getElementById('errorBox').style.display = 'block';
+  } finally {
+    btn.disabled = false;
+    spinner.style.display = 'none';
+    btnText.textContent = '상담 신청하기';
+  }
+}
+
+const areas = ['서울 전 지역','경기 성남','경기 수원','경기 용인','경기 화성','경기 안양','경기 군포','인천 일부 지역'];
+document.getElementById('areaTags').innerHTML = areas.map(a => `<div class="area-tag">${a}</div>`).join('');
+
+(async () => {
+  document.getElementById('calDow').innerHTML = dows.map(d => `<div class="cal-dow">${d}</div>`).join('');
+  document.getElementById('calDays').innerHTML = '<div class="cal-loading" style="grid-column:1/-1">예약 현황 불러오는 중...</div>';
+  await fetchBlocked(cur.getFullYear(), cur.getMonth());
+  renderCal();
+})();
+</script>
+</body>
+</html>
