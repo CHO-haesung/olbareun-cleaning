@@ -138,6 +138,9 @@ section{padding:96px 5%}
 
 footer{background:#111418;color:#9aa1ab;padding:30px 5%;display:flex;justify-content:space-between;align-items:center;font-size:13px;gap:16px;flex-wrap:wrap}
 .footer-brand{color:#fff;font-weight:700;font-size:15px}
+.footer-center{flex:1;text-align:center}
+.footer-biz{text-align:right}
+@media(max-width:600px){footer{flex-direction:column;align-items:flex-start;gap:6px}.footer-center{flex:none;text-align:left}.footer-biz{text-align:left}}
 
 @media(max-width:900px){
   .services-grid{grid-template-columns:1fr}
@@ -167,7 +170,7 @@ footer{background:#111418;color:#9aa1ab;padding:30px 5%;display:flex;justify-con
 <!-- HERO : images/hero.jpg -->
 <section class="hero photo">
   <div class="hero-content">
-    <span class="hero-badge">학교 청소 전문 · 입주·교회 청소</span>
+    <span class="hero-badge">학교·입주·교회 청소 전문</span>
     <h1>깨끗한 교실,<br>올바른 청소부터</h1>
     <p class="hero-sub">학교 청소를 중심으로 입주·이사 청소, 교회 청소까지 맡아 진행합니다.<br>안전한 친환경 세정제와 전문 장비로 믿고 맡길 수 있습니다.</p>
     <div class="hero-btns">
@@ -323,7 +326,8 @@ footer{background:#111418;color:#9aa1ab;padding:30px 5%;display:flex;justify-con
 
 <footer>
   <div class="footer-brand">올바른청소</div>
-  <div>학교·입주·교회 청소 · 사업자번호 000-00-00000</div>
+  <div class="footer-center">학교·입주·교회 청소</div>
+  <div class="footer-biz">사업자번호 000-00-00000</div>
 </footer>
 
 <script>
