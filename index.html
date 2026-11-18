@@ -14,14 +14,11 @@ body{font-family:'Pretendard Variable',Pretendard,-apple-system,'Malgun Gothic',
 a{text-decoration:none;color:inherit}
 html{scroll-behavior:smooth}
 button{font-family:inherit}
-.photo{position:relative;background-color:var(--blue-mid);background-size:cover;background-position:center}
+.photo{position:relative;background-color:#eceff2;background-size:cover;background-position:center}
 .photo::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.48)}
 .photo>*{position:relative;z-index:1}
 .photo.plain::before,.photo.plain-ba::before{display:none}
-.photo>.ph-hint{position:absolute;inset:10px;border:2px dashed rgba(255,255,255,.75);background:rgba(10,61,98,.4);color:#fff;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font-size:12px;line-height:1.5;padding:8px;z-index:2}
-.ph-hint b{font-size:14px}.ph-hint span{opacity:.9}.ph-hint em{font-style:normal;opacity:.8;margin-top:6px;max-width:36ch}
-.ph.ok>.ph-hint{display:none}
-.off .ph.opt:not(.ok){display:none}.off .ph:not(.ok)>.ph-hint{display:none}
+.off .ph.opt:not(.ok){display:none}
 nav{position:fixed;top:0;left:0;right:0;z-index:100;background:#fff;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:64px}
 .logo{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:800;color:var(--brand);letter-spacing:-0.03em}
 .logo img{height:36px;width:auto}
@@ -44,8 +41,7 @@ h1{font-size:clamp(32px,5vw,54px);font-weight:800;line-height:1.28;margin-bottom
 .hero .btn-primary:hover{background:transparent;color:#fff}
 .btn-outline{color:#fff;padding:15px 30px;border-radius:var(--r);font-size:15px;font-weight:600;border:1px solid #fff}
 .btn-outline:hover{background:#fff;color:var(--blue-dark)}
-.hero.photo>.ph-hint{inset:auto 5% auto auto;top:50%;transform:translateY(-50%);width:28%;max-width:340px;padding:18px}
-section{padding:96px 5%}
+.herosection{padding:96px 5%}
 section>*{max-width:1120px;margin-left:auto;margin-right:auto}
 .section-label{font-size:13px;font-weight:700;color:var(--blue);letter-spacing:0.08em;margin-bottom:10px}
 .section-title{font-size:clamp(26px,3.6vw,38px);font-weight:800;margin-bottom:12px;letter-spacing:-0.03em}
@@ -53,8 +49,7 @@ section>*{max-width:1120px;margin-left:auto;margin-right:auto}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:44px}
 .service-card{min-height:300px;display:flex;flex-direction:column;justify-content:flex-end;padding:26px;color:#fff;border-radius:var(--r);overflow:hidden}
 .service-card.photo::before{background:linear-gradient(to top,rgba(10,61,98,.94) 0%,rgba(10,61,98,.72) 45%,rgba(10,61,98,.12) 100%)}
-.service-card.photo>.ph-hint{inset:12px 12px auto 12px;padding:10px}
-.service-name{font-size:20px;font-weight:700;margin-bottom:8px}
+.service-card.service-name{font-size:20px;font-weight:700;margin-bottom:8px}
 .service-desc{font-size:14px;line-height:1.65;color:#e8f1f8}
 .more{margin-top:18px;font-size:14.5px;color:var(--muted)}
 .trust-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:40px}
@@ -70,8 +65,7 @@ button.ba-card:hover{border-color:var(--brand)}
 .ba-imgs{display:grid;grid-template-columns:1fr 1fr;gap:2px}
 .ba-img{aspect-ratio:4/3;display:flex;align-items:flex-end;padding:12px}
 .ba-img.photo::before{background:linear-gradient(to top,rgba(10,61,98,.78) 0%,rgba(10,61,98,0) 50%)}
-.ba-img.photo>.ph-hint{inset:8px 8px 36px 8px;font-size:11px}.ba-img .ph-hint em{display:none}
-.ba-label{font-size:12px;font-weight:700;letter-spacing:0.08em;color:#fff}
+.ba-img .ba-label{font-size:12px;font-weight:700;letter-spacing:0.08em;color:#fff}
 .ba-info{padding:16px 18px}.ba-type{font-size:15px;font-weight:700}.ba-detail{font-size:13px;color:var(--muted);margin-top:2px}
 .blog{margin-top:22px;font-size:14.5px}.blog a{color:var(--blue);font-weight:700;text-decoration:underline}
 dialog{border:0;border-radius:var(--r);width:min(960px,92vw);max-height:90vh;padding:28px;margin:auto}
@@ -147,7 +141,7 @@ footer{background:#111418;color:#9aa1ab;padding:30px 5%;font-size:13px;line-heig
 .foot-in{max-width:1120px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .foot-in img{height:56px;width:auto}
 .foot-brand p{margin-top:6px;color:#cfd5dc}
-@media(max-width:900px){.service-card{min-height:240px}.services-grid,.certs{grid-template-columns:1fr}.trust-strip{grid-template-columns:1fr 1fr}.panel,.trust-grid{grid-template-columns:1fr}.hero{padding-bottom:170px}.hero.photo>.ph-hint{inset:auto 5% 18px 5%;top:auto;transform:none;width:auto;max-width:none}}
+@media(max-width:900px){.service-card{min-height:240px}.services-grid,.certs{grid-template-columns:1fr}.trust-strip{grid-template-columns:1fr 1fr}.panel,.trust-grid{grid-template-columns:1fr}.hero{padding-bottom:170px}}
 @media(max-width:640px){.contact-card{grid-template-columns:1fr}.contact-item:nth-child(2){border-top:1px solid var(--border)}.hero-sub{font-size:15px}.booking-layout,.contact-grid,.before-after-grid,.shots,.shots.two{grid-template-columns:1fr}.nav-links{display:none}section{padding:72px 5%}}
 </style>
 </head>
@@ -158,8 +152,7 @@ footer{background:#111418;color:#9aa1ab;padding:30px 5%;font-size:13px;line-heig
   <a class="nav-cta tel-link" href="#booking">전화 상담</a>
 </nav>
 <header class="hero photo ph" id="top" data-src="images/hero.jpg">
-  <div class="ph-hint"><b>첫 화면 배경 사진</b><span>16:9 이상 · 가로 1920px 이상 · hero.jpg</span><em>결과가 가장 좋은 사진. 사람은 없거나 뒷모습, 학교 간판 제외. 왼쪽 글자가 겹치니 오른쪽에 볼거리</em></div>
-  <div class="hero-content">
+    <div class="hero-content">
     <span class="hero-badge">청주·오창·오송</span>
     <h1>깨끗한 공간을 만드는 일,<br>올바른청소가 함께합니다</h1>
     <p class="hero-sub">학교와 공공시설 청소를 중심으로,<br>입주·이사 청소와 에어컨 분해 청소도 진행합니다.</p>
@@ -418,9 +411,9 @@ async function submitBooking() {
 
 </script>
 <script>
-// ===== 설정: 값이 확정되면 여기만 고치면 됩니다 (showPlaceholders: false 로 바꾸면 빈 사진 자리가 숨겨집니다) =====
+// ===== 설정: 값이 확정되면 여기만 고치면 됩니다 (showPlaceholders: false 이면 사진이 없는 선택 칸은 숨겨집니다) =====
 const CFG={phones:['010-9031-3638','010-8708-4986'],email:'rlqnswjsghks@naver.com',blog:'https://blog.naver.com/allbareun7942',bizNo:'',
-  company:'올(All)바른청소 종합관리',rep:'한민우',place:'충청북도 청주시 서원구',areas:['청주','오창','오송'],mapUrl:'',showPlaceholders:true};
+  company:'올(All)바른청소 종합관리',rep:'한민우',place:'충청북도 청주시 서원구',areas:['청주','오창','오송'],mapUrl:'',showPlaceholders:false};
 const SV=[
  {id:'school',n:'학교·공공시설 청소',d:'급식실, 화장실, 복도·계단, 기숙사까지 학교 시설 전반을 청소합니다.',h:'학교 청소 결과가 잘 보이는 사진(복도, 급식실 등). 얼굴·학교 간판 제외'},
  {id:'movein',n:'입주·이사 청소',d:'입주 청소, 이사 청소, 준공 후 청소를 진행합니다.',h:'입주·이사 청소 후 깔끔한 주방이나 욕실. 고객 물품·문서 제외'},
@@ -443,7 +436,7 @@ const SC=[
  {id:'disinfect',n:'방역 소독',w:[['복도, 계단, 교실 등 학교 전 공간']]},
  {id:'weed',n:'제초',w:[['교정 잔디, 수목'],['보도 주변']]}];
 const $=s=>document.querySelector(s);
-const hint=(f,r,l,h)=>`<div class="ph-hint"><b>${l}</b><span>${r.replace('/',':')} · 가로 1200px 이상 · ${f}</span><em>${h}</em></div>`;
+const hint=()=>'';
 const box=(f,r,l,h,cls)=>`<div class="photo ph plain ${cls||''}" data-src="images/${f}" style="aspect-ratio:${r}">${hint(f,r,l,h)}</div>`;
 function loadPh(root){root.querySelectorAll('.ph:not(.ok)').forEach(e=>{const i=new Image();i.onload=()=>{e.style.backgroundImage=`url('${e.dataset.src}')`;e.classList.add('ok')};i.src=e.dataset.src})}
 const tel=p=>'tel:'+p.replace(/-/g,'');
